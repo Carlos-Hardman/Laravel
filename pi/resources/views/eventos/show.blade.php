@@ -50,16 +50,41 @@
       margin-left:20px;
     }
     .imagem-evento{
-        margin:50px 20px 0px 50px;
+        text-align:center;
     }
-    .preco{
-        border:solid green;
-        background:green;
-        color:white;
-        border-radius:20px;
-        padding:5px 10px 5px 15px;
-        margin-left:100px;
-    }
+    
+    .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas iguais */
+    grid-gap: 20px; /* Espaço entre as colunas */
+    align-items: center;
+}
+
+.imagem-evento {
+    max-width: 100%;
+    height: auto;
+}
+
+.produto-info {
+    text-align: left;
+}
+
+.descricao-produto {
+    max-width: 100%;
+}
+
+.preco {
+    border:solid green;
+    background:green;
+    color:white;
+   border-radius:20px;
+   margin-top: 10px;
+    padding: 10px 20px 10px 20px; 
+    border: 1px solid #000; 
+    display: inline-block; 
+}
+
+    
     
     
  
@@ -103,21 +128,19 @@
     
   </div>
 </nav>
-        <div style="display:flex; margin-left:300px;">
-            @foreach($imagens as $imagem)
-                <img  class="imagem-evento" src="{{ asset($imagens[0]->IMAGEM_URL) }}" class="img-fluid" alt="..."  width="400">
-            @endforeach
-            <div style="margin-top:70px;">
-                <p style="padding:100px 0px 0px 50px;" class="fs-1">{{$produtos->PRODUTO_NOME}}</p>
-                <div style="width:400px; margin-left:50px;">
-                    <p>{{$produtos->PRODUTO_DESC}}</p>
-                </div>
-                <div class="preco" style="width: 6rem;">
-                    R${{$produtos->PRODUTO_PRECO}}
-                    </div>
-            </div>
+<div class="container">
+    @foreach($imagens as $imagem)
+        <img class="imagem-evento" src="{{ asset($imagem->IMAGEM_URL) }}" class="img-fluid" alt="...">
+    @endforeach
+    <div class="produto-info">
+        <p class="fs-1">{{$produtos->PRODUTO_NOME}}</p>
+        <p class="descricao-produto">{{$produtos->PRODUTO_DESC}}</p>
+        <div class="preco">
+            R${{$produtos->PRODUTO_PRECO}}
         </div>
-   
+    </div>
+</div>
+
 
 
 
