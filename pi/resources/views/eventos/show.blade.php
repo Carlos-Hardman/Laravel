@@ -130,7 +130,7 @@
 </nav>
 <div class="container">
     @foreach($imagens as $imagem)
-        <img class="imagem-evento" src="{{ asset($imagem->IMAGEM_URL) }}" class="img-fluid" alt="...">
+        <img class="imagem-evento" src="{{ asset($imagem->IMAGEM_URL) }}" class="img-fluid" alt="..." width='500'>
     @endforeach
     <div class="produto-info">
         <p class="fs-1">{{$produtos->PRODUTO_NOME}}</p>
